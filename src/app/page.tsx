@@ -2,6 +2,7 @@ import Topbar from "@/components/Topbar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import StatsStrip from "@/components/StatsStrip";
+import VideoSection from "@/components/VideoSection";
 import Services from "@/components/Services";
 import Industries from "@/components/Industries";
 import About from "@/components/About";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <StatsStrip />
+        <VideoSection />
         <Services />
         <Industries />
         <About />
