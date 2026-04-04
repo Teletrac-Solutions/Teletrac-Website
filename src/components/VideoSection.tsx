@@ -91,25 +91,15 @@ export default function VideoSection() {
                 </div>
               </div>
             ) : (
-              /* HTML5 Video — direct CDN, no embed restrictions */
+              /* YouTube iframe */
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black" style={{ aspectRatio: "16/9" }}>
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  controls
-                  playsInline
-                  poster="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=85"
-                >
-                  <source
-                    src="https://cdn.pixabay.com/video/2016/04/01/2842-161596544_large.mp4"
-                    type="video/mp4"
-                  />
-                  <source
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/xrFs1DBjeh4?autoplay=1&rel=0&modestbranding=1"
+                  title="Teletrac Fleet Management"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             )}
 
