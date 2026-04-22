@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0d1f1a]">
-      <div className="max-w-[1220px] mx-auto px-6 pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.5fr] gap-12">
+      <div className="wrapper pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.5fr] gap-12">
         {/* Brand */}
         <div>
           <a href="#home" className="flex items-center gap-2.5 mb-5">
@@ -103,7 +103,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/[0.07] mt-4">
-        <div className="max-w-[1220px] mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div className="wrapper py-5 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-white/30 text-xs">&copy; {year} Teletrac Fleets. All rights reserved.</p>
           <p className="text-white/30 text-xs">Designed with precision for East African fleet operators.</p>
         </div>

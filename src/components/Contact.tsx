@@ -13,7 +13,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-[90px] bg-white">
-      <div className="max-w-[1220px] mx-auto px-6 grid lg:grid-cols-[1fr_1.3fr] gap-20 items-start">
+      <div className="wrapper grid lg:grid-cols-[1fr_1.3fr] gap-20 items-start">
         {/* Info */}
         <div>
           <p className="flex items-center gap-2 text-[#00644E] text-xs font-bold uppercase tracking-widest mb-3">

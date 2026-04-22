@@ -46,7 +46,7 @@ const industries = [
 export default function Industries() {
   return (
     <section id="industries" className="py-[90px] bg-white">
-      <div className="max-w-[1220px] mx-auto px-6">
+      <div className="wrapper">
         <div className="text-center max-w-xl mx-auto mb-14">
           <p className="flex items-center justify-center gap-2 text-[#00644E] text-xs font-bold uppercase tracking-widest mb-3">
             <span className="block w-7 h-0.5 bg-[#FFD461] rounded" />

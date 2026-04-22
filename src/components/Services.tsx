@@ -2,45 +2,81 @@ const services = [
   {
     icon: "fa-map-marked-alt",
     title: "Vehicle Tracking",
-    desc: "Real-time GPS monitoring of your entire fleet. Know exactly where every vehicle is, 24/7, from any device.",
-    image: "https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=700&q=80",
+    shortDesc: "Real-Time Fleet Mastery",
+    desc: "Know exactly where every vehicle is, 24/7, with high-precision GPS monitoring optimized for East African terrain.",
+    stats: { number: "99.9%", label: "System Uptime" },
+    features: [
+      { title: "Live GPS", icon: "fa-location-dot" },
+      { title: "Geofencing", icon: "fa-draw-polygon" },
+      { title: "Path History", icon: "fa-route" }
+    ],
   },
   {
     icon: "fa-car-side",
     title: "Vehicle Vetting",
-    desc: "Comprehensive pre-deployment vehicle inspection and vetting to ensure your fleet meets safety and compliance standards.",
-    image: "https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=700&q=80",
+    shortDesc: "Compliance & Safety",
+    desc: "Rigorous pre-deployment inspections ensuring your fleet meets the highest safety standards and regional compliance.",
+    stats: { number: "100%", label: "Audit Readiness" },
+    features: [
+      { title: "Multi-Point Check", icon: "fa-list-check" },
+      { title: "Compliance Logs", icon: "fa-file-shield" },
+      { title: "Risk Ratings", icon: "fa-triangle-exclamation" }
+    ],
   },
   {
     icon: "fa-clipboard-list",
     title: "Transport Audits",
-    desc: "In-depth operational audits that identify inefficiencies, reduce risk, and deliver measurable cost savings.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
+    shortDesc: "Efficiency Optimization",
+    desc: "Deep-dive operational audits that uncover hidden costs, eliminate waste, and boost your bottom line with data.",
+    stats: { number: "30%", label: "Avg. Cost Savings" },
+    features: [
+      { title: "Waste Analysis", icon: "fa-recycle" },
+      { title: "Route Efficiency", icon: "fa-map-pin" },
+      { title: "Profit Analytics", icon: "fa-chart-pie" }
+    ],
   },
   {
     icon: "fa-chalkboard-teacher",
     title: "Training Programs",
-    desc: "Driver behaviour and fleet management training programs to maximise safety and performance across your team.",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80",
+    shortDesc: "Human Performance",
+    desc: "Expert-led driver and management training focusing on defensive driving and fuel-efficient performance.",
+    stats: { number: "85%", label: "Safety Improvement" },
+    features: [
+      { title: "Defensive Driving", icon: "fa-user-shield" },
+      { title: "Fuel Economy", icon: "fa-gas-pump" },
+      { title: "Soft Skills", icon: "fa-graduation-cap" }
+    ],
   },
   {
     icon: "fa-hard-hat",
-    title: "Health & Safety Consultancy",
-    desc: "Expert H&S consultancy tailored to transport operations. Protect your drivers, reduce liability, and ensure compliance.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80",
+    title: "H&S Consultancy",
+    shortDesc: "Risk Mitigation",
+    desc: "Tailored Health & Safety services for transport operations to protect your team and minimize organizational liability.",
+    stats: { number: "15yr+", label: "Expert Experience" },
+    features: [
+      { title: "Policy Audits", icon: "fa-gavel" },
+      { title: "Site Inspections", icon: "fa-clipboard-check" },
+      { title: "Incident Support", icon: "fa-ambulance" }
+    ],
   },
   {
     icon: "fa-microchip",
-    title: "Tracking Accessories",
-    desc: "Full range of telematics hardware, dashcams, fuel sensors, and accessories compatible with all vehicle brands.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80",
+    title: "Hardware Solutions",
+    shortDesc: "Advanced IoT Suite",
+    desc: "High-grade telematics hardware, dashcams, and fuel sensors compatible with all major vehicle and equipment brands.",
+    stats: { number: "50k+", label: "Devices Deployed" },
+    features: [
+      { title: "AI Dashcams", icon: "fa-video" },
+      { title: "Fuel Sensors", icon: "fa-droplet" },
+      { title: "Asset Tags", icon: "fa-nfc-symbol" }
+    ],
   },
 ];
 
 export default function Services() {
   return (
     <section id="services" className="py-[90px] bg-gray-50">
-      <div className="max-w-[1220px] mx-auto px-6">
+      <div className="wrapper">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-14">
           <p className="flex items-center justify-center gap-2 text-[#00644E] text-xs font-bold uppercase tracking-widest mb-3">
@@ -55,42 +91,47 @@ export default function Services() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((s) => (
             <div
               key={s.title}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
+              className="group bg-white rounded-[32px] overflow-hidden border border-slate-200 hover:border-[#00644E] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col"
             >
-              {/* Image banner */}
-              <div
-                className="h-44 relative overflow-hidden"
-                style={{
-                  backgroundImage: `url('${s.image}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                {/* Semi-transparent dark green overlay — image shows through */}
-                <div className="absolute inset-0 bg-[#003226]/60 group-hover:bg-[#003226]/45 transition-all duration-300" />
-                {/* Bottom gradient fade */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#003226]/80 via-transparent to-transparent" />
-                {/* Icon badge */}
-                <div className="absolute top-4 left-4 z-10 w-12 h-12 rounded-xl bg-white/15 backdrop-blur-sm border border-white/30 flex items-center justify-center text-[#FFD461] text-xl group-hover:bg-[#FFD461]/20 transition-all duration-300">
-                  <i className={`fas ${s.icon}`} />
-                </div>
+              {/* Header with icon-gradient */}
+              <div className="h-40 bg-gradient-to-br from-[#00644E]/5 to-[#FFD461]/10 group-hover:from-[#00644E]/15 group-hover:to-[#FFD461]/20 flex items-center justify-center transition-all duration-500">
+                <i className={`fas ${s.icon} text-6xl text-[#00644E] opacity-70 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-110`} />
               </div>
 
               {/* Content */}
-              <div className="p-7">
-                {/* Top accent bar on hover */}
-                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#00644E] to-[#FFD461] mb-4 transition-all duration-300 rounded" />
-                <h3 className="font-bold text-gray-900 text-lg mb-3">{s.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-5">{s.desc}</p>
+              <div className="p-8 flex-1 flex flex-col">
+                <p className="text-[10px] text-[#00644E] font-black mb-3 uppercase tracking-[0.25em]">{s.shortDesc}</p>
+                <h3 className="text-2xl font-extrabold text-gray-900 mb-4 group-hover:text-[#00644E] transition-colors">{s.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-1">{s.desc}</p>
+
+                {/* Impact Metric Box (Styled from Solutions) */}
+                <div className="mb-8 p-4 bg-gradient-to-r from-[#00644E]/5 to-[#FFD461]/5 rounded-2xl border border-[#00644E]/10">
+                  <p className="text-[9px] text-gray-500 uppercase tracking-widest font-bold mb-1">{s.stats.label}</p>
+                  <p className="text-3xl font-black text-[#00644E]">{s.stats.number}</p>
+                </div>
+
+                {/* Mini Features List */}
+                <div className="space-y-4 mb-8">
+                  {s.features.map((feature) => (
+                    <div key={feature.title} className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#FFD461]/20 flex items-center justify-center text-[#00644E] text-xs">
+                        <i className={`fas ${feature.icon}`} />
+                      </div>
+                      <span className="text-xs font-bold text-gray-700 tracking-tight">{feature.title}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Call to Action */}
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-1.5 text-[#00644E] text-sm font-semibold hover:gap-3 transition-all"
+                  className="mt-auto group/btn inline-flex items-center gap-2 text-[#00644E] text-sm font-bold hover:gap-3 transition-all"
                 >
-                  Learn more <i className="fas fa-arrow-right text-xs" />
+                  Explore Details <i className="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>

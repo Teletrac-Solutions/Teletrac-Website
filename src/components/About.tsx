@@ -16,7 +16,7 @@ const features = [
 export default function About() {
   return (
     <section id="about" className="py-[90px] bg-gray-50">
-      <div className="max-w-[1220px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+      <div className="wrapper grid lg:grid-cols-2 gap-20 items-center">
         {/* Visual */}
         <div className="relative hidden lg:block">
           <div className="relative h-[440px] rounded-3xl overflow-hidden">

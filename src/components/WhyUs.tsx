@@ -43,7 +43,7 @@ export default function WhyUs() {
       {/* Dark green overlay over background */}
       <div className="absolute inset-0 bg-[#003226]/90" />
 
-      <div className="relative z-10 max-w-[1220px] mx-auto px-6">
+      <div className="relative z-10 wrapper">
         <div className="text-center max-w-xl mx-auto mb-12">
           <p className="flex items-center justify-center gap-2 text-[#FFD461] text-xs font-bold uppercase tracking-widest mb-3">
             <span className="block w-7 h-0.5 bg-[#FFD461]/40 rounded" />

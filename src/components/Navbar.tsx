@@ -35,11 +35,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white border-b border-gray-100 transition-shadow ${
-        scrolled ? "shadow-md" : ""
-      }`}
+      className={`sticky top-0 z-50 bg-white border-b border-gray-100 transition-shadow ${scrolled ? "shadow-md" : ""
+        }`}
     >
-      <div className="max-w-[1220px] mx-auto px-6 flex items-center h-[72px] gap-8">
+      <div className="wrapper flex items-center h-[72px] gap-8">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2.5 shrink-0">
           <div className="w-10 h-10 bg-[#00644E] rounded-xl flex items-center justify-center">

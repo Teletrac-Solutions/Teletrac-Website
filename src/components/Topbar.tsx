@@ -1,7 +1,7 @@
 export default function Topbar() {
   return (
     <div className="bg-[#004d3c] text-white/80 text-xs py-2">
-      <div className="max-w-[1220px] mx-auto px-6 flex justify-between items-center">
+      <div className="wrapper flex justify-between items-center">
         <div className="flex gap-5 items-center">
           <span className="flex items-center gap-1.5">
             <i className="fas fa-phone text-[#FFD461] text-[10px]" />

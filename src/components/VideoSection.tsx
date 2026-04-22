@@ -12,7 +12,7 @@ export default function VideoSection() {
 
   return (
     <section className="py-[90px] bg-white overflow-hidden">
-      <div className="max-w-[1220px] mx-auto px-6">
+      <div className="wrapper">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* ── Left: Text ── */}

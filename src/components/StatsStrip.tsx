@@ -8,7 +8,7 @@ const items = [
 export default function StatsStrip() {
   return (
     <section id="stats" className="bg-white border-b border-gray-100">
-      <div className="max-w-[1220px] mx-auto grid grid-cols-2 lg:grid-cols-4">
+      <div className="wrapper grid grid-cols-2 lg:grid-cols-4">
         {items.map((item, i) => (
           <div
             key={item.title}
