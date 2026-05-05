@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const solutions = ["Vehicle Tracking","Vehicle Vetting","Transport Audits","Training Programs","H&S Consultancy","Accessories"];
-const industryLinks = ["Energy & Oil/Gas","Manufacturers","Transport & Logistics","Government","Taxi & Rental","Retail & FMCG"];
-const company = ["About Us","Contact","Careers","Blog","Privacy Policy","Terms of Service"];
-const regions = ["Kampala, Uganda","Dar es Salaam, Tanzania","Kigali, Rwanda"];
+const solutions = ["Vehicle Tracking", "Vehicle Vetting", "Transport Audits", "Training Programs", "H&S Consultancy", "Accessories"];
+const industryLinks = ["Energy & Oil/Gas", "Manufacturers", "Transport & Logistics", "Government", "Taxi & Rental", "Retail & FMCG"];
+const company = ["About Us", "Contact", "Careers", "Blog", "Privacy Policy", "Terms of Service"];
+const regions = ["Kampala, Uganda", "Dar es Salaam, Tanzania", "Kigali, Rwanda"];
 const socials = [
   { icon: "fa-facebook-f", href: "#" },
   { icon: "fa-linkedin-in", href: "#" },
@@ -17,20 +17,18 @@ export default function Footer() {
   useEffect(() => setYear(new Date().getFullYear()), []);
 
   return (
-    <footer className="bg-[#0d1f1a]">
-      <div className="wrapper pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.5fr] gap-12">
+    <footer className="bg-[#0d1f1a] pt-24 pb-20">
+      <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2.2fr_1fr_1fr_1.8fr] gap-x-16 gap-y-16">
         {/* Brand */}
         <div>
-          <a href="#home" className="flex items-center gap-2.5 mb-5">
-            <div className="w-10 h-10 bg-[#FFD461]/15 rounded-xl flex items-center justify-center">
-              <i className="fas fa-satellite-dish text-[#FFD461] text-lg" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-[#FFD461] font-extrabold text-sm tracking-wide">TELETRAC</span>
-              <span className="text-white/30 font-semibold text-[10px] tracking-widest">FLEETS</span>
-            </div>
+          <a href="#home" className="flex items-center mb-5">
+            <img
+              src="/Teletrac_Fleet_Solutions_logo.png"
+              alt="Teletrac Fleets"
+              className="h-10 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
           </a>
-          <p className="text-white/50 text-sm leading-relaxed max-w-[280px] mb-7">
+          <p className="text-white/50 text-sm leading-relaxed max-w-[320px] mb-8">
             Simplifying your logistical processes with intelligent telematics solutions across East Africa.
           </p>
           <div className="flex gap-2.5">
@@ -102,10 +100,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/[0.07] mt-4">
-        <div className="wrapper py-5 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="text-white/30 text-xs">&copy; {year} Teletrac Fleets. All rights reserved.</p>
-          <p className="text-white/30 text-xs">Designed with precision for East African fleet operators.</p>
+      <div className="border-t border-white/[0.07] mt-16">
+        <div className="wrapper py-10 flex flex-col sm:flex-row justify-between items-center gap-6">
+          <p className="text-white/30 text-[11px]">&copy; {year} Teletrac Fleets. All rights reserved.</p>
+          <p className="text-white/30 text-[11px] tracking-wide">Designed with precision for East African fleet operators.</p>
         </div>
       </div>
     </footer>

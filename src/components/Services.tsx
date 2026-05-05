@@ -11,18 +11,7 @@ const services = [
       { title: "Path History", icon: "fa-route" }
     ],
   },
-  {
-    icon: "fa-car-side",
-    title: "Vehicle Vetting",
-    shortDesc: "Compliance & Safety",
-    desc: "Rigorous pre-deployment inspections ensuring your fleet meets the highest safety standards and regional compliance.",
-    stats: { number: "100%", label: "Audit Readiness" },
-    features: [
-      { title: "Multi-Point Check", icon: "fa-list-check" },
-      { title: "Compliance Logs", icon: "fa-file-shield" },
-      { title: "Risk Ratings", icon: "fa-triangle-exclamation" }
-    ],
-  },
+
   {
     icon: "fa-clipboard-list",
     title: "Transport Audits",
@@ -69,6 +58,18 @@ const services = [
       { title: "AI Dashcams", icon: "fa-video" },
       { title: "Fuel Sensors", icon: "fa-droplet" },
       { title: "Asset Tags", icon: "fa-nfc-symbol" }
+    ],
+  },
+  {
+    icon: "fa-tower-broadcast",
+    title: "Control Room Services",
+    shortDesc: "24/7 Fleet Monitoring",
+    desc: "Round-the-clock command and control centre operations — monitoring your fleet in real time, coordinating dispatch, and responding to critical incidents before they escalate.",
+    stats: { number: "24/7", label: "Continuous Coverage" },
+    features: [
+      { title: "Live Monitoring", icon: "fa-display" },
+      { title: "Incident Response", icon: "fa-bell" },
+      { title: "Dispatch Coordination", icon: "fa-headset" }
     ],
   },
 ];

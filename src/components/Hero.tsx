@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 
 const mainStats = [
-  { count: 500, suffix: "+", label: "Fleets Managed" },
+  { count: 1500, suffix: "+", label: "Fleets Managed" },
   { count: 3, suffix: "", label: "Countries" },
   { count: 10, suffix: "+", label: "Years Experience" },
 ];
@@ -110,42 +110,42 @@ export default function Hero() {
           {/* Left Column: Headline & CTA */}
           <div className="animate-fade-in flex flex-col h-full">
             <div className="flex-1 flex flex-col justify-center pb-12">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-3 bg-[#FFD461]/10 border border-[#FFD461]/30 text-[#FFD461] text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full mb-8 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD461] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFD461]"></span>
-              </span>
-              East Africa&apos;s Trusted Fleet Partner
-            </div>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-3 bg-[#FFD461]/10 border border-[#FFD461]/30 text-[#FFD461] text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full mb-8 backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD461] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFD461]"></span>
+                </span>
+                East Africa&apos;s Trusted Fleet Partner
+              </div>
 
-            {/* Headline */}
-            <h1 className="text-white font-extrabold leading-[1.05] tracking-tight mb-8" style={{ fontSize: "clamp(2.8rem, 6vw, 4.5rem)" }}>
-              Intelligent Fleet<br />
-              Management <span className="text-[#FFD461]">Simplified.</span>
-            </h1>
+              {/* Headline */}
+              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight mb-8" style={{ fontSize: "clamp(2.8rem, 6vw, 4.5rem)" }}>
+                Intelligent Fleet<br />
+                Management <span className="text-[#FFD461]">Simplified.</span>
+              </h1>
 
-            {/* Subtitle */}
-            <p className="text-white/80 max-w-[580px] mb-12 leading-relaxed font-medium" style={{ fontSize: "clamp(1.05rem, 1.2vw, 1.25rem)" }}>
-              Revolutionizing logistics across <span className="text-white font-semibold">Uganda, Tanzania, and Rwanda</span> with localized telematics that grant you complete operational mastery.
-            </p>
+              {/* Subtitle */}
+              <p className="text-white/80 max-w-[580px] mb-12 leading-relaxed font-medium" style={{ fontSize: "clamp(1.05rem, 1.2vw, 1.25rem)" }}>
+                Revolutionizing logistics across <span className="text-white font-semibold">Uganda, Tanzania, and Rwanda</span> with localized telematics that grant you complete operational mastery.
+              </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-5 mb-16">
-              <a
-                href="#contact"
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#FFD461] text-black font-bold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_40px_rgba(255,212,97,0.3)] overflow-hidden"
-              >
-                <span className="relative z-10">Schedule a Consultation</span>
-                <i className="fas fa-arrow-right relative z-10 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#services"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-md text-white font-bold rounded-xl border border-white/20 hover:bg-white/10 transition-all hover:border-white/40"
-              >
-                Explore Solutions
-              </a>
-            </div>
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-5 mb-16">
+                <a
+                  href="#contact"
+                  className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#FFD461] text-black font-bold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_40px_rgba(255,212,97,0.3)] overflow-hidden"
+                >
+                  <span className="relative z-10">Schedule a Consultation</span>
+                  <i className="fas fa-arrow-right relative z-10 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="#services"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-md text-white font-bold rounded-xl border border-white/20 hover:bg-white/10 transition-all hover:border-white/40"
+                >
+                  Explore Solutions
+                </a>
+              </div>
 
             </div>
             {/* Stats Row */}

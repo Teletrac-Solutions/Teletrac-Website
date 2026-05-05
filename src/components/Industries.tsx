@@ -1,19 +1,8 @@
+import Link from 'next/link';
+
 const industries = [
   {
-    icon: "fa-oil-can",
-    title: "Energy & Oil/Gas",
-    desc: "Critical asset tracking for high-value operations in remote locations.",
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80",
-    overlay: "from-black/70 via-black/40 to-transparent",
-  },
-  {
-    icon: "fa-industry",
-    title: "Manufacturers",
-    desc: "End-to-end supply chain visibility from plant to delivery point.",
-    image: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80",
-    overlay: "from-black/75 via-black/45 to-transparent",
-  },
-  {
+    id: "transportation",
     icon: "fa-truck",
     title: "Transport & Logistics",
     desc: "Optimise routes, reduce fuel waste, and guarantee on-time deliveries.",
@@ -21,25 +10,44 @@ const industries = [
     overlay: "from-[#003226]/80 via-[#003226]/50 to-transparent",
   },
   {
-    icon: "fa-landmark",
-    title: "Government",
-    desc: "Accountability and transparency for public sector vehicle fleets.",
-    image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80",
+    id: "construction",
+    icon: "fa-hard-hat",
+    title: "Construction",
+    desc: "Maximize asset utilization and protect valuable heavy machinery.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    overlay: "from-black/75 via-black/45 to-transparent",
+  },
+  {
+    id: "agriculture",
+    icon: "fa-tractor",
+    title: "Agriculture & Farming",
+    desc: "Drive agricultural efficiency with precision tracking of tractors and implements.",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
     overlay: "from-black/70 via-black/40 to-transparent",
   },
   {
-    icon: "fa-taxi",
-    title: "Taxi & Rental",
-    desc: "Protect your assets and ensure passenger safety with real-time monitoring.",
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
-    overlay: "from-black/65 via-black/35 to-transparent",
+    id: "energy",
+    icon: "fa-oil-can",
+    title: "Oil & Gas (Energy Sector)",
+    desc: "Critical asset tracking for high-value operations in remote locations.",
+    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80",
+    overlay: "from-black/70 via-black/40 to-transparent",
   },
   {
+    id: "retail",
     icon: "fa-store",
     title: "Retail & FMCG",
     desc: "Last-mile delivery tracking and proof-of-delivery for retail operations.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     overlay: "from-[#3730a3]/75 via-[#3730a3]/45 to-transparent",
+  },
+  {
+    id: "government",
+    icon: "fa-landmark",
+    title: "Government & Non Government Organization",
+    desc: "Accountability and transparency for public sector vehicle fleets.",
+    image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80",
+    overlay: "from-black/65 via-black/35 to-transparent",
   },
 ];
 
@@ -87,11 +95,11 @@ export default function Industries() {
                 </div>
               </div>
               {/* Body */}
-              <div className="p-5 bg-white">
-                <p className="text-gray-500 text-sm leading-relaxed">{ind.desc}</p>
-                <a href="#contact" className="inline-flex items-center gap-1.5 mt-3 text-[#00644E] text-xs font-semibold hover:gap-3 transition-all">
+              <div className="p-5 bg-white flex-1 flex flex-col">
+                <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1">{ind.desc}</p>
+                <Link href={`/industries#${ind.id}`} className="inline-flex items-center gap-1.5 mt-auto text-[#00644E] text-xs font-semibold hover:gap-3 transition-all">
                   Learn more <i className="fas fa-arrow-right text-[10px]" />
-                </a>
+                </Link>
               </div>
             </div>
           ))}

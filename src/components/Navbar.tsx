@@ -1,157 +1,219 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { ChevronDown, Menu, X, MapPin, Phone, Mail } from "lucide-react";
 
-const solutions = [
-  { icon: "fa-map-marker-alt", label: "Vehicle Tracking" },
-  { icon: "fa-car", label: "Vehicle Vetting" },
-  { icon: "fa-clipboard-check", label: "Transport Audits" },
-  { icon: "fa-graduation-cap", label: "Training Programs" },
-  { icon: "fa-shield-alt", label: "Health & Safety" },
-  { icon: "fa-tools", label: "Accessories" },
+const solutionsDropdown = [
+  { href: "/unity-platform", label: "Fleet Tracking", icon: "fa-location-dot", description: "Real-time GPS tracking and monitoring" },
+  { href: "/analytics-engine", label: "Driver Management", icon: "fa-user-shield", description: "Comprehensive driver oversight and safety" },
+  { href: "/video-telematics", label: "Video Telematics", icon: "fa-video", description: "AI dashcams for advanced safety and insights" },
+  { href: "/analytics-engine", label: "Route Optimization", icon: "fa-route", description: "AI-powered route planning and optimization" },
+  { href: "/fuel-management", label: "Fuel Management", icon: "fa-gas-pump", description: "Track fuel consumption and costs" },
+  { href: "/unity-platform", label: "Maintenance Scheduling", icon: "fa-wrench", description: "Preventive maintenance and alerts" },
 ];
 
-const industries = [
-  { icon: "fa-oil-can", label: "Energy & Oil" },
-  { icon: "fa-industry", label: "Manufacturers" },
-  { icon: "fa-truck", label: "Transport & Logistics" },
-  { icon: "fa-landmark", label: "Government" },
-  { icon: "fa-taxi", label: "Taxi & Rental" },
-  { icon: "fa-store", label: "Retail & FMCG" },
-];
+const industriesData = [];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDropdown = (name: string) =>
-    setOpenDropdown(openDropdown === name ? null : name);
+  const toggle = (label: string) =>
+    setActiveDropdown(activeDropdown === label ? null : label);
 
   return (
-    <header
-      className={`sticky top-0 z-50 bg-white border-b border-gray-100 transition-shadow ${scrolled ? "shadow-md" : ""
-        }`}
-    >
-      <div className="wrapper flex items-center h-[72px] gap-8">
-        {/* Logo */}
-        <a href="#home" className="flex items-center gap-2.5 shrink-0">
-          <div className="w-10 h-10 bg-[#00644E] rounded-xl flex items-center justify-center">
-            <i className="fas fa-satellite-dish text-[#FFD461] text-lg" />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-[#00644E] font-extrabold text-sm tracking-wide">TELETRAC</span>
-            <span className="text-gray-400 font-semibold text-[10px] tracking-widest">FLEETS</span>
-          </div>
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="ml-auto hidden lg:flex items-center gap-1">
-          <a href="#home" className="px-3.5 py-2 text-sm font-medium text-[#00644E] rounded-lg bg-green-50">
-            Home
-          </a>
-
-          {/* Solutions dropdown */}
-          <div className="nav-item relative group">
-            <a
-              href="#services"
-              className="flex items-center gap-1 px-3.5 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-[#00644E] hover:bg-gray-50 transition-colors"
-            >
-              Solutions <i className="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180" />
-            </a>
-            <div className="nav-dropdown hidden absolute top-[calc(100%+8px)] left-0 bg-white rounded-xl shadow-xl border border-gray-100 p-2 min-w-[220px] z-50">
-              {solutions.map((s) => (
-                <a
-                  key={s.label}
-                  href="#services"
-                  className="flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-50 hover:text-[#00644E] transition-colors"
-                >
-                  <i className={`fas ${s.icon} text-[#00644E] w-4 text-sm`} />
-                  {s.label}
-                </a>
-              ))}
+    <>
+      {/* Top contact bar */}
+      <div className="bg-[#00644E] text-white text-sm py-2.5 hidden lg:block">
+        <div className="wrapper flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
+              <span>Kampala, Uganda</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Phone className="w-3.5 h-3.5 shrink-0" />
+              <span>+256 702 510 668</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Mail className="w-3.5 h-3.5 shrink-0" />
+              <span>info@teletracfleets.com</span>
             </div>
           </div>
-
-          {/* Industries dropdown */}
-          <div className="nav-item relative group">
-            <a
-              href="#industries"
-              className="flex items-center gap-1 px-3.5 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-[#00644E] hover:bg-gray-50 transition-colors"
-            >
-              Industries <i className="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180" />
-            </a>
-            <div className="nav-dropdown hidden absolute top-[calc(100%+8px)] left-0 bg-white rounded-xl shadow-xl border border-gray-100 p-2 min-w-[220px] z-50">
-              {industries.map((ind) => (
-                <a
-                  key={ind.label}
-                  href="#industries"
-                  className="flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-50 hover:text-[#00644E] transition-colors"
-                >
-                  <i className={`fas ${ind.icon} text-[#00644E] w-4 text-sm`} />
-                  {ind.label}
-                </a>
-              ))}
-            </div>
+          <div className="flex items-center gap-2 text-white/80 text-xs">
+            <span>24/7 Support Available</span>
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse block" />
           </div>
-
-          <a href="#about" className="px-3.5 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-[#00644E] hover:bg-gray-50 transition-colors">
-            About
-          </a>
-          <a href="#contact" className="px-3.5 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-[#00644E] hover:bg-gray-50 transition-colors">
-            Contact
-          </a>
-        </nav>
-
-        <a
-          href="#contact"
-          className="hidden lg:inline-flex ml-4 shrink-0 items-center gap-2 px-5 py-2.5 bg-[#00644E] text-white text-sm font-semibold rounded-full hover:bg-[#004d3c] transition-all hover:-translate-y-0.5 hover:shadow-lg"
-        >
-          Get Started
-        </a>
-
-        {/* Hamburger */}
-        <button
-          className="lg:hidden ml-auto flex flex-col gap-1.5 p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
-        >
-          <span className={`block w-6 h-0.5 bg-gray-700 transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-gray-700 transition-all ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-gray-700 transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-1 shadow-lg">
-          {["#home:Home", "#services:Solutions", "#industries:Industries", "#about:About", "#contact:Contact"].map((item) => {
-            const [href, label] = item.split(":");
-            return (
-              <a
-                key={label}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className="py-3 border-b border-gray-100 text-sm font-medium text-gray-700"
+      {/* Main header */}
+      <header
+        className={`sticky top-0 z-50 bg-white transition-all duration-300 ${isScrolled ? "shadow-md" : "border-b border-gray-200"
+          }`}
+      >
+        <div className="wrapper flex items-center h-20 gap-10">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0">
+            <img
+              src="/Teletrac_Fleet_Solutions_logo.png"
+              alt="Teletrac Fleet Solutions"
+              style={{ height: "48px", width: "auto" }}
+            />
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="mx-auto hidden lg:flex items-center gap-2">
+
+            <Link href="/" className="px-4 py-2.5 text-[15px] font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+              Home
+            </Link>
+
+            {/* Solutions */}
+            <div className="relative">
+              <button
+                onClick={() => toggle("solutions")}
+                className={`flex items-center gap-1.5 px-4 py-2.5 text-[15px] font-semibold rounded-lg transition-colors ${activeDropdown === "solutions" ? "text-[#00644E] bg-gray-50" : "text-gray-700 hover:text-[#00644E] hover:bg-gray-50"
+                  }`}
               >
-                {label}
-              </a>
-            );
-          })}
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="mt-3 text-center py-3 bg-[#00644E] text-white text-sm font-semibold rounded-full"
+                Solutions
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "solutions" ? "rotate-180" : ""}`} />
+              </button>
+
+              {activeDropdown === "solutions" && (
+                <div className="absolute top-[calc(100%+8px)] -left-16 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-[650px] z-50">
+                  <div className="p-6">
+                    <p className="text-[10px] font-bold text-[#00644E] uppercase tracking-widest mb-4">Our Solutions</p>
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                      {solutionsDropdown.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="group/item flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100"
+                        >
+                          <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center text-[#00644E] group-hover/item:bg-[#00644E] group-hover/item:text-white transition-colors shrink-0 mt-0.5">
+                            <i className={`fas ${item.icon} text-sm`} />
+                          </div>
+                          <div>
+                            <p className="text-[13px] font-bold text-gray-800 group-hover/item:text-[#00644E] transition-colors mb-1">
+                              {item.label}
+                            </p>
+                            <p className="text-[11px] text-gray-500 leading-relaxed group-hover/item:text-gray-600">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link href="/industries" className="px-4 py-2.5 text-[15px] font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+              Industries
+            </Link>
+
+            <Link href="/about" className="px-4 py-2.5 text-[15px] font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+              About
+            </Link>
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <Link
+              href="#contact"
+              className="px-6 py-3 text-[15px] font-semibold text-[#00644E] border-2 border-[#00644E] rounded-xl hover:bg-[#00644E] hover:text-white transition-all duration-200"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="#contact"
+              className="px-6 py-3 text-[15px] font-semibold text-white bg-[#00644E] rounded-xl hover:bg-[#004d3c] transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Get Demo
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden ml-auto p-2 text-gray-700 hover:text-[#00644E] transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            Get Started
-          </a>
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-xl z-50">
+            <div className="px-4 py-5 space-y-1">
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+                Home
+              </Link>
+
+              {/* Mobile Solutions */}
+              <div>
+                <button onClick={() => toggle("mob-solutions")}
+                  className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+                  Solutions
+                  <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "mob-solutions" ? "rotate-180" : ""}`} />
+                </button>
+                {activeDropdown === "mob-solutions" && (
+                  <div className="ml-4 mt-1 space-y-1">
+                    {solutionsDropdown.map((item) => (
+                      <Link key={item.label} href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+                        <span>{item.icon}</span>{item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link href="/industries" onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+                Industries
+              </Link>
+
+              {[{ label: "Features", href: "#services" }, { label: "Pricing", href: "#contact" }, { label: "About", href: "/about" }, { label: "Contact", href: "#contact" }].map((l) => (
+                <Link key={l.label} href={l.href} onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#00644E] hover:bg-gray-50 rounded-lg transition-colors">
+                  {l.label}
+                </Link>
+              ))}
+
+              <div className="pt-4 flex flex-col gap-3">
+                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}
+                  className="block w-full text-center py-3 text-sm font-semibold text-[#00644E] border-2 border-[#00644E] rounded-xl hover:bg-green-50 transition-colors">
+                  Sign In
+                </Link>
+                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}
+                  className="block w-full text-center py-3 text-sm font-semibold text-white bg-[#00644E] rounded-xl hover:bg-[#004d3c] transition-colors">
+                  Get Demo
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Backdrop to close dropdowns */}
+      {activeDropdown && (
+        <div className="fixed inset-0 z-40" onClick={() => setActiveDropdown(null)} />
       )}
-    </header>
+    </>
   );
 }

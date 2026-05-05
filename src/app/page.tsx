@@ -14,10 +14,31 @@ import Contact from "@/components/Contact";
 import ClientLogos from "@/components/ClientLogos";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.teletracfleets.com",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Teletrac Fleets",
+  url: "https://www.teletracfleets.com",
+  description: "Intelligent Fleet & Telematics Solutions provider for East Africa.",
+};
 
 export default function Home() {
   return (
     <>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <Topbar />
       <Navbar />
       <main>
