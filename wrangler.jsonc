@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "teletrac-website",
+  "compatibility_date": "2026-05-21",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "teletrac-website"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
